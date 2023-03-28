@@ -12,7 +12,6 @@ model Book {
   title         String
   author        String
   publishedDate DateTime
-  borrowed      Boolean  @default(false)
 
   borrows       Borrow[] @relation("BookBorrow")
   reviews       Review[] @relation("BookReview")
@@ -27,15 +26,28 @@ model Borrow {
 
   book         Book     @relation("BookBorrow", fields: [bookId], references: [id])
   bookId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
 }
 
 model Review {
   id          Int      @id @default(autoincrement())
-  reviewer    String
   comment     String
   rating      Int
   reviewDate  DateTime @default(now())
   
   book        Book     @relation("BookReview", fields: [bookId], references: [id])
   bookId      Int
+
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+}
+
+model  User {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String   @unique
+  password    String
+  booksBorrowed Borrow[]
+  booksReview Review[]
 }
