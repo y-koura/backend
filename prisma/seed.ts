@@ -12,13 +12,13 @@ const main = async () => {
         publishedDate: faker.date
           .between('2021-01-01', '2023-01-01')
           .toISOString(),
-        borrows: {
-          create: [
-            {
-              borrower: faker.name.findName(),
-            },
-          ],
-        },
+        // borrows: {
+        //   create: [
+        //     {
+        //       borrower: faker.name.findName(),
+        //     },
+        //   ],
+        // },
       },
     });
   }
