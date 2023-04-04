@@ -21,7 +21,7 @@
     "testdata": "node ./prisma/seed.ts"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.0",
+    "@nestjs/common": "^9.3.12",
     "@nestjs/core": "^9.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/passport": "^9.0.3",

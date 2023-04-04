@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 @Controller('books')
 export class BooksController {
-  @Get('/books')
+  @Get('/')
   async getBooks() {
     const books = await prisma.book.findMany();
     return books;

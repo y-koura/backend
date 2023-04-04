@@ -8,14 +8,14 @@ const main = async () => {
     await prisma.book.create({
       data: {
         title: faker.lorem.words(3),
-        author: faker.name.findName(),
+        author: faker.name.fullName(),
         publishedDate: faker.date
           .between('2021-01-01', '2023-01-01')
           .toISOString(),
         // borrows: {
         //   create: [
         //     {
-        //       borrower: faker.name.findName(),
+        //       borrower: faker.name.fullName(),
         //     },
         //   ],
         // },
