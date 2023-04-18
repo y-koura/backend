@@ -1,5 +1,14 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Query,
+  Body,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { Book, PrismaClient } from '@prisma/client';
+import { BookCreateDTO } from './dto/create-book.dto';
 
 const prisma = new PrismaClient();
 
@@ -21,5 +30,15 @@ export class BooksController {
     });
 
     return books;
+  }
+
+  @Post('/register')
+  @UsePipes(new ValidationPipe({ transform: true }))
+  async createBook(@Body() bookCreateDTO: BookCreateDTO) {
+    const { title, author, publishedDate } = bookCreateDTO;
+    const book = await prisma.book.create({
+      data: { title, author, publishedDate },
+    });
+    return { book };
   }
 }
