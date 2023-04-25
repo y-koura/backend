@@ -4,10 +4,11 @@ import { AppService } from './app.service';
 import { GoogleModule } from './google/google.module';
 import { BooksController } from './books/books.controller';
 import { CorsMiddleware } from './cors.middleware';
+import { ReviewsController } from './reviews/reviews.controller';
 
 @Module({
   imports: [GoogleModule],
-  controllers: [AppController, BooksController],
+  controllers: [AppController, BooksController, ReviewsController],
   providers: [AppService],
 })
 export class AppModule {

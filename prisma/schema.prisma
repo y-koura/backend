@@ -24,7 +24,7 @@ model Borrow {
   borrowedAt   DateTime @default(now())
   returnedAt   DateTime?
 
-  book         Book     @relation("BookBorrow", fields: [bookId], references: [id])
+  book        Book     @relation("BookBorrow", fields: [bookId], references: [id])
   bookId      Int
   user        User     @relation(fields: [userId], references: [id])
   userId      Int
