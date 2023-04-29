@@ -18,7 +18,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "seed": "npx ts-node prisma/seed.ts"
+    "seed:delete": "npx ts-node prisma/seeds/delete.ts",
+    "seed:book": "npx ts-node prisma/seeds/book.ts",
+    "seed:user": "npx ts-node prisma/seeds/user.ts",
+    "seed:review": "npx ts-node prisma/seeds/review.ts"
   },
   "dependencies": {
     "@nestjs/common": "^9.3.12",

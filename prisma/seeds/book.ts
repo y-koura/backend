@@ -24,3 +24,6 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+
+// npx ts-node prisma/seed.ts
+// seed通らない場合npx prisma migrate dev --name book

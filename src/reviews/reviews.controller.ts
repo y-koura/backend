@@ -15,11 +15,11 @@ const prisma = new PrismaClient();
 @Controller('reviews')
 export class ReviewsController {
   @Get('/')
-  async getReviews(@Query('bookId') bookId: number): Promise<Review[]> {
+  async getReviews(@Query('bookId') bookId: string): Promise<Review[]> {
     const reviews = await prisma.review.findMany({
       where: {
         bookId: {
-          equals: bookId,
+          equals: parseInt(bookId),
         },
       },
     });
